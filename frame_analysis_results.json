@@ -1,0 +1,157 @@
+{
+  "ground_truth": "a gorilla driving a scooter through a street with people walking on the sidewalk. No rain, buildings on either side",
+  "total_frames": 16,
+  "aggregate_scores": {
+    "average_correctness": 0.0,
+    "average_coherence": 0.0,
+    "average_faithfulness": 0.0,
+    "overall_score": 0.0
+  },
+  "final_summary": "No summary generated",
+  "frame_results": [
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 1,
+      "frame_path": "data/frame_001.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 2,
+      "frame_path": "data/frame_002.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 3,
+      "frame_path": "data/frame_003.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 4,
+      "frame_path": "data/frame_004.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 5,
+      "frame_path": "data/frame_005.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 6,
+      "frame_path": "data/frame_006.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 7,
+      "frame_path": "data/frame_007.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 8,
+      "frame_path": "data/frame_008.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 9,
+      "frame_path": "data/frame_009.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 10,
+      "frame_path": "data/frame_010.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 11,
+      "frame_path": "data/frame_011.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 12,
+      "frame_path": "data/frame_012.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 13,
+      "frame_path": "data/frame_013.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 14,
+      "frame_path": "data/frame_014.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 15,
+      "frame_path": "data/frame_015.png"
+    },
+    {
+      "correctness_score": 0,
+      "coherence_score": 0,
+      "faithfulness_score": 0,
+      "frame_description": "Error analyzing frame: Error code: 404 - {'error_code': 'ENDPOINT_NOT_FOUND', 'message': 'The given endpoint does not exist, please retry after checking the specified model and version deployment exists.'}",
+      "updated_summary": "",
+      "frame_number": 16,
+      "frame_path": "data/frame_016.png"
+    }
+  ]
+}
