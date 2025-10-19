@@ -20,7 +20,7 @@ uv pip install -r requirements.txt
 ### Running the Application
 ```bash
 # Run the main video analysis script
-uv run app.py
+uv run 02-app.py
 ```
 
 ## Architecture

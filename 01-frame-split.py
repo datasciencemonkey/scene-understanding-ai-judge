@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 
-import subprocess
+import json
 import os
-import sys
+from pathlib import Path
 import shutil
+import subprocess
+import sys
+
+current_dir = Path(__file__).parent
 
 def clear_data_folder(output_dir):
     """
@@ -20,6 +24,7 @@ def clear_data_folder(output_dir):
     # Recreate empty directory
     os.makedirs(output_dir, exist_ok=True)
     print(f"✓ Created clean {output_dir}/ directory")
+
 
 def get_fps_from_user():
     """
@@ -39,16 +44,18 @@ def get_fps_from_user():
         try:
             choice = input("\nEnter your choice (1-4): ").strip()
 
-            if choice == '1':
+            if choice == "1":
                 return 0.5
-            elif choice == '2':
+            elif choice == "2":
                 return 1.0
-            elif choice == '3':
+            elif choice == "3":
                 return 2.0
-            elif choice == '4':
+            elif choice == "4":
                 while True:
                     try:
-                        custom_fps = float(input("Enter custom fps value (e.g., 0.25, 1.5, 3): "))
+                        custom_fps = float(
+                            input("Enter custom fps value (e.g., 0.25, 1.5, 3): ")
+                        )
                         if custom_fps > 0:
                             return custom_fps
                         else:
@@ -62,6 +69,7 @@ def get_fps_from_user():
             sys.exit(0)
         except Exception as e:
             print(f"Error: {e}. Please try again.")
+
 
 def extract_frames(video_path, output_dir, fps=1):
     """
@@ -78,10 +86,12 @@ def extract_frames(video_path, output_dir, fps=1):
 
     # Build FFmpeg command
     cmd = [
-        'ffmpeg',
-        '-i', video_path,
-        '-vf', f'fps={fps}',
-        f'{output_dir}/frame_%03d.png'
+        "ffmpeg",
+        "-i",
+        video_path,
+        "-vf",
+        f"fps={fps}",
+        f"{output_dir}/frame_%03d.png",
     ]
 
     try:
@@ -99,7 +109,11 @@ def extract_frames(video_path, output_dir, fps=1):
             print("✓ Frame extraction completed successfully!")
 
             # Count extracted frames
-            frame_files = [f for f in os.listdir(output_dir) if f.startswith('frame_') and f.endswith('.png')]
+            frame_files = [
+                f
+                for f in os.listdir(output_dir)
+                if f.startswith("frame_") and f.endswith(".png")
+            ]
             print(f"✓ Extracted {len(frame_files)} frames")
 
             # Show file sizes
@@ -127,10 +141,19 @@ def extract_frames(video_path, output_dir, fps=1):
 
     return True
 
+
 if __name__ == "__main__":
     # Default values
-    video_file = "veo3-generations.mp4"
-    output_directory = "data"
+
+
+    video_name = "hunt"
+
+    with open(current_dir / "videos/video_prompts.json", "r") as f:
+        prompts = json.load(f)
+    video_file = prompts[video_name]["save_path"]
+    video_file = str(current_dir / "videos" / video_file)
+
+    output_directory = current_dir / "data"
 
     print("🎬 Video Frame Extractor")
     print("=" * 40)
@@ -155,11 +178,11 @@ if __name__ == "__main__":
     print("\n=== Confirmation ===")
     print(f"Video: {video_file}")
     print(f"Output: {output_directory}/")
-    print(f"Sampling rate: {fps} fps")
+    print(f"Image rate: {fps} fps")
 
     try:
         confirm = input("\nProceed with frame extraction? (y/N): ").strip().lower()
-        if confirm not in ['y', 'yes']:
+        if confirm not in ["y", "yes"]:
             print("Operation cancelled.")
             sys.exit(0)
     except KeyboardInterrupt:
