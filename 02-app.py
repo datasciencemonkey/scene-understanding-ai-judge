@@ -1,150 +1,27 @@
-import base64
 import glob
 import json
-import os
 from pathlib import Path
 from typing import Dict
-from urllib.parse import urljoin
 
-from dotenv import load_dotenv
-from openai import OpenAI
-from pydantic import BaseModel, Field
-from rich import print
 from rich.console import Console
 from rich.panel import Panel
 from rich.progress import track
 from rich.table import Table
 from rich.text import Text
 
-
-# How to get your Databricks token: https://docs.databricks.com/en/dev-tools/auth/pat.html
-# Alternatively in a Databricks notebook you can use this:
-# DATABRICKS_TOKEN = dbutils.notebook.entry_point.getDbutils().notebook().getContext().apiToken().get()
-
-load_dotenv()
-DATABRICKS_HOST = os.getenv("DATABRICKS_HOST")
-DATABRICKS_TOKEN = os.environ.get("DATABRICKS_TOKEN")
-base_url = urljoin(DATABRICKS_HOST, "serving-endpoints")
+from helpers import analyze_frame, get_openai_client, load_video_prompts
 
 current_dir = Path(__file__).parent
+
 # Make sure this is one of the keys in video_prompts.json
 video_name = "hunt"
 
-with open(current_dir / "videos/video_prompts.json", "r") as f:
-    prompts = json.load(f)
-
-
-def encode_image(image_path):
-    """Encode image file to base64 string"""
-    with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode("utf-8")
-
-
-def encode_video(video_path):
-    """Encode video file to base64 string"""
-    with open(video_path, "rb") as video_file:
-        return base64.b64encode(video_file.read()).decode("utf-8")
-
-
-# Ground truth for comparison
+# Load prompts and get ground truth
+prompts = load_video_prompts()
 GROUND_TRUTH = prompts[video_name]["prompt"]
 
-
-class FrameAnalysis(BaseModel):
-    """Structured output for frame analysis"""
-
-    correctness_score: int = Field(
-        ..., ge=1, le=10, description="How well the frame matches the ground truth"
-    )
-    coherence_score: int = Field(
-        ...,
-        ge=1,
-        le=10,
-        description="How coherent the frame is with the video sequence",
-    )
-    faithfulness_score: int = Field(
-        ...,
-        ge=1,
-        le=10,
-        description="How faithful the frame is to ground truth elements",
-    )
-    frame_description: str = Field(
-        ..., description="Detailed description of what is visible in the frame"
-    )
-    updated_summary: str = Field(
-        ...,
-        description="Comprehensive summary incorporating this and all previous frames",
-    )
-
-
-client = OpenAI(
-    api_key=DATABRICKS_TOKEN,
-    base_url=base_url,
-)
-
-
-def analyze_frame(
-    image_path: str, frame_number: int, previous_summary: str = ""
-) -> FrameAnalysis:
-    """Analyze a single frame and return scoring and description"""
-
-    base64_image = encode_image(image_path)
-
-    # Create prompt for frame analysis
-    analysis_prompt = f"""
-    You are a judge evaluating the quality and coherence of generated video frames.
-
-    Ground Truth: "{GROUND_TRUTH}"
-
-    Previous Summary (if any): {previous_summary}
-
-    Please analyze this frame (Frame #{frame_number}) and provide:
-
-    1. CORRECTNESS SCORE (1-10): How well does this frame match the ground truth description?
-    2. COHERENCE SCORE (1-10): How coherent is this frame with the expected video sequence?
-    3. FAITHFULNESS SCORE (1-10): How faithful is this frame to the ground truth elements?
-    4. FRAME DESCRIPTION: Detailed description of what you see in this frame
-    5. UPDATED SUMMARY: Based on this frame and previous frames, provide an updated summary of the overall video content
-    """
-
-    try:
-        response = client.beta.chat.completions.parse(
-            model="o4-mini",
-            messages=[
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": analysis_prompt,
-                        },
-                        {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": f"data:image/png;base64,{base64_image}"
-                            },
-                        },
-                    ],
-                }
-            ],
-            response_format=FrameAnalysis,
-        )
-
-        # Get the parsed Pydantic model
-        frame_analysis = response.choices[0].message.parsed
-
-        # Convert to dict for compatibility with existing code
-        return frame_analysis
-
-    except Exception as e:
-        print(f"Error analyzing frame {frame_number}: {e}")
-        return {
-            "correctness_score": 0,
-            "coherence_score": 0,
-            "faithfulness_score": 0,
-            "frame_description": f"Error analyzing frame: {str(e)}",
-            "updated_summary": previous_summary,
-        }
+# Initialize OpenAI client
+client = get_openai_client()
 
 
 def analyze_all_frames() -> Dict:
@@ -176,7 +53,7 @@ def analyze_all_frames() -> Dict:
         frame_number = len(results) + 1
 
         frame_result = analyze_frame(
-            frame_path, frame_number, current_summary
+            client, frame_path, frame_number, GROUND_TRUTH, current_summary
         ).model_dump()
         frame_result["frame_number"] = frame_number
         frame_result["frame_path"] = frame_path

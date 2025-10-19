@@ -1,38 +1,38 @@
 {
-  "ground_truth": "Cinematic scene of a Zebra and her baby at a watering hole. The scene intensifies as a lion lurks in the tall grass. The mother and her baby make a run for it before the lion pounces.",
+  "ground_truth": "A video of a couple sharing a cup of ice cream on a stormy night New York City, soft lighting",
   "total_frames": 8,
   "aggregate_scores": {
-    "average_correctness": 8.25,
-    "average_coherence": 8.25,
-    "average_faithfulness": 8.12,
-    "overall_score": 8.21
+    "average_correctness": 9.12,
+    "average_coherence": 9.38,
+    "average_faithfulness": 9.12,
+    "overall_score": 9.21
   },
-  "final_summary": "The intended narrative of a mother zebra and her foal fleeing a lurking lion at a watering hole has veered off course. Instead of showing zebras at water or a predator, this frame presents an unrelated herd of antelope-like silhouettes racing across a dry plain at sunset, disrupting the established story elements and setting.",
+  "final_summary": "On a stormy New York City night, a couple huddles beneath a shared black umbrella as rain glistens on their coats and the pavement. The man, dressed in a tan coat and hoodie, and the woman, in a green hooded raincoat, tenderly feed each other from a single cup of vanilla ice cream. Neon shop lights and street reflections provide a softly lit urban backdrop, emphasizing the intimate warmth of their moment.",
   "frame_results": [
     {
-      "correctness_score": 10,
-      "coherence_score": 9,
-      "faithfulness_score": 10,
-      "frame_description": "The frame shows a mother zebra standing at the edge of a watering hole, drinking, with her foal standing close by. Golden, waist-high grass dominates the midground, interspersed with a few acacia trees in the background. Partially concealed in the tall grass behind the zebras, a lion (likely a lioness) crouches low, its head and shoulders visible as it watches the pair. The overall lighting is warm and soft, suggesting early morning or late afternoon, giving a cinematic feel.",
-      "updated_summary": "A cinematic savanna sequence opens with a mother zebra and her foal at a watering hole, drinking peacefully under warm, golden-hour light. Unbeknownst to them, a lioness lurks in the tall grass behind, setting up a tense predator\u2013prey dynamic.",
+      "correctness_score": 9,
+      "coherence_score": 10,
+      "faithfulness_score": 9,
+      "frame_description": "A young couple stands close together under a large black umbrella on a rainy city street at night. The man wears a tan overcoat and hoodie, holding a small cup of light-colored ice cream. The woman, wearing a raincoat with a hood, brings a spoonful of ice cream to her mouth. In the blurred background are wet pavement, glowing storefront lights, and the faint outline of a yellow taxi, suggesting a stormy New York City night with soft, warm ambient lighting.",
+      "updated_summary": "A romantic scene of a couple in rainy New York City sharing a single cup of ice cream under an umbrella on a stormy night, illuminated by soft city lights.",
       "frame_number": 1,
       "frame_path": "data/frame_001.png"
     },
     {
-      "correctness_score": 10,
+      "correctness_score": 9,
       "coherence_score": 10,
-      "faithfulness_score": 10,
-      "frame_description": "In the golden-hour savanna, a mother zebra and her foal are seen stepping out of a shallow watering hole. The adult\u2019s front leg is raised mid-stride, splashing water, while the foal follows close behind along the muddy edge. In the background, tall, dry grass frames a crouching lioness, her eyes fixed on the zebras, partly concealed by the amber vegetation. Acacia trees dot the horizon under a pale sky.",
-      "updated_summary": "The video opens on a serene savanna watering hole where a mother zebra and her foal drink under warm, golden light. Suddenly, the mother and foal rise and begin to move away from the water\u2019s edge. Unbeknownst to them, a lioness crouches in the tall, dry grass behind, her gaze locked on the pair. The rising tension foreshadows an imminent chase as the zebras sense danger.",
+      "faithfulness_score": 9,
+      "frame_description": "A close-up of a couple standing under a black umbrella in the rain on a New York City street at night. The man, wearing a brown coat and hoodie, holds a single cup of ice cream while the woman in a green raincoat leans in to taste it. Raindrops are visible on the umbrella and their coats; blurred city lights and a yellow taxi are seen in the softly lit background.",
+      "updated_summary": "A romantic scene unfolds on a stormy New York City night: a couple huddles together under a single umbrella, sharing a cup of ice cream. The rain falls around them as they lean close, illuminated by soft urban lights and passing traffic.",
       "frame_number": 2,
       "frame_path": "data/frame_002.png"
     },
     {
-      "correctness_score": 10,
-      "coherence_score": 10,
-      "faithfulness_score": 10,
-      "frame_description": "A vivid moment captures the mother zebra mid-stride as she leaps away from the water\u2019s edge, her hooves kicking up dirt and water droplets. Her foal follows closely but appears to slip, its legs splayed in a brief stumble. In the background, partially hidden in the tall, golden savanna grass, the head and shoulders of a lioness come into view, low and poised, her eyes fixed on the fleeing pair. Acacia trees dot the horizon under warm, late-afternoon light.",
-      "updated_summary": "After quietly drinking at the watering hole, the mother zebra and her foal suddenly bolt as they sense danger. The mother leads the sprint, while the foal struggles momentarily in the mud. Behind them, a lioness emerges from the tall grass, crouching low and ready to strike. The chase has begun, heightening the tension of predator and prey in the golden savanna.",
+      "correctness_score": 9,
+      "coherence_score": 9,
+      "faithfulness_score": 9,
+      "frame_description": "The frame shows a young couple standing close together under a large black umbrella on a rainy city street at night. The man, wearing a brown coat and hoodie, gently leans in to take a bite of ice cream held by the woman, who is dressed in a green raincoat with the hood up. Raindrops glisten on the umbrella\u2019s surface and on their coats. In the softly lit background, blurred outlines of storefronts and the faint glow of yellow taxi lights suggest a New York City street scene under heavy rain.",
+      "updated_summary": "On a stormy night in New York City, a couple shares a single umbrella as they stand in the rain-lit streets. Dressed in warm coats, the woman feeds the man a spoonful of ice cream while they gaze fondly at each other. Soft urban lights and passing taxi headlights glow in the wet background, highlighting the intimate, romantic moment.",
       "frame_number": 3,
       "frame_path": "data/frame_003.png"
     },
@@ -40,44 +40,44 @@
       "correctness_score": 9,
       "coherence_score": 9,
       "faithfulness_score": 9,
-      "frame_description": "A mother zebra and her foal are sprinting away from a small watering hole. The mare is in front, legs extended, while the foal follows closely, kicking up a spray of mud and dust as it splashes through the shallow water. In the background\u2019s tall golden grass, the head of a lioness peeks through the stalks, eyes fixed on the fleeing zebras.",
-      "updated_summary": "The mother zebra and her foal, having sensed danger at the watering hole, break into a panicked run. Their hooves churn up mud and dust as they dart across the water\u2019s edge. From the tall savanna grass behind them, the lioness emerges low to the ground, her gaze locked on the pair. The predator-prey chase surges forward, heightening the suspense across the golden plain.",
+      "frame_description": "A close-up shot of the couple huddled beneath a large black umbrella on a rain-slicked New York City sidewalk. The woman, wearing a green hooded raincoat, brings a spoonful of ice cream to the man\u2019s lips. He leans forward, eyes gently closed, anticipating the bite. He is dressed in a brown wool coat layered over a gray hoodie. In the softly lit background, blurred neon storefronts and wet pavement reflect muted city lights, emphasizing the intimate, cozy moment.",
+      "updated_summary": "On a stormy night in New York City, a couple shares an intimate moment beneath a single umbrella in the rain-drenched streets. Dressed in warm coats and hoods, the woman lovingly feeds the man a spoonful of ice cream from their shared cup. Soft urban lights, neon signs, and passing headlights glow off the wet pavement, creating a tender, romantic atmosphere.",
       "frame_number": 4,
       "frame_path": "data/frame_004.png"
     },
     {
       "correctness_score": 9,
-      "coherence_score": 8,
+      "coherence_score": 9,
       "faithfulness_score": 9,
-      "frame_description": "A medium shot captures the zebra mother and her foal splashing through the shallow edge of the watering hole, mud and water flying under their pounding hooves. Behind them, almost fully upright and mid-stride, a lioness emerges from the golden tall grass, her muscles tensed and eyes locked on the fleeing pair. In the distance, a lone acacia tree and scrub brush silhouette the savanna horizon under a pale sky. The contrast between the striped prey and tawny predator heightens the imminent danger.",
-      "updated_summary": "The mother zebra and her foal, spooked at the watering hole, dash through the muddy shallows with water splashing around them. From the tall, dry savanna grass, a lioness has now fully risen to her feet and is in active pursuit, closing the gap as the chase accelerates across the dusty plain under an acacia-dotted skyline.",
+      "frame_description": "The frame shows a close-up of a couple huddled beneath a large black umbrella on a rainy city street at night. The woman, wearing a green raincoat with the hood up, holds a small cup of vanilla ice cream and offers a spoonful to the man. He is dressed in a tan wool coat layered over a hoodie and leans in with closed eyes to taste the ice cream. Soft neon signage and blurred shopfronts glow in the wet pavement behind them, emphasizing the romantic, stormy New York City atmosphere.",
+      "updated_summary": "On a stormy New York City night, a couple stands close under a shared umbrella on glistening, rain-soaked streets. Dressed in warm coats and hoods, the woman lovingly lifts a spoonful of ice cream from their shared cup to feed the man. Soft urban and neon lights reflect off the wet pavement, creating an intimate and tender moment against the backdrop of the city\u2019s glowing storefronts.",
       "frame_number": 5,
       "frame_path": "data/frame_005.png"
-    },
-    {
-      "correctness_score": 7,
-      "coherence_score": 9,
-      "faithfulness_score": 7,
-      "frame_description": "Wide shot of a mother zebra and her foal running across the shallow edge of a watering hole. The mother zebra is in the foreground, splashing through the water, and the foal follows closely behind, its legs extended in mid\u2010stride. In the background, tall golden savanna grass stretches toward the horizon, punctuated by a single umbrella acacia tree under a pale sky. No predator is visible in this frame.",
-      "updated_summary": "Spooked by a lurking lioness, a mother zebra and her foal bolt from a watering hole, racing through the shallow water with powerful strides that send sprays of water flying. The chase presses them across a golden savanna plain dotted with acacia trees as they flee imminent danger.",
-      "frame_number": 6,
-      "frame_path": "data/frame_006.png"
     },
     {
       "correctness_score": 9,
       "coherence_score": 9,
       "faithfulness_score": 9,
-      "frame_description": "A mother zebra leads her foal running swiftly across a shallow watering hole. Both animals\u2019 reflections are clearly visible on the water\u2019s surface. The foal appears to nibble or brush against the mother\u2019s tail as they bound forward. In the background, tall golden savanna grass stretches to the horizon under a pale sky.",
-      "updated_summary": "Spooked by a lurking predator, a mother zebra and her foal bolt away from a watering hole. They race through the shallow water, leaving crisp reflections behind, with golden savanna grass framing their urgent flight toward safety.",
+      "frame_description": "The frame shows a man and woman standing close together under a large black umbrella on a wet, rain-soaked city street at night. The man, wearing a tan overcoat layered over a hoodie, leans forward with his eyes half-closed in anticipation. The woman, dressed in a green hooded raincoat, holds a small cup of ice cream in one hand and lifts a spoonful toward the man\u2019s mouth with the other. Reflections of neon and storefront lights shimmer on the pavement behind them, and rain droplets cling to the umbrella\u2019s canopy.",
+      "updated_summary": "On a stormy New York City night, a couple stands close together beneath a shared black umbrella on glistening, rain-soaked streets illuminated by neon and storefront lights. The man, clad in a tan coat over a hoodie, and the woman, wearing a green hooded raincoat, tenderly share a single cup of ice cream\u2014she lifts a spoonful to his lips, creating an intimate moment against the softly lit urban backdrop.",
+      "frame_number": 6,
+      "frame_path": "data/frame_006.png"
+    },
+    {
+      "correctness_score": 10,
+      "coherence_score": 10,
+      "faithfulness_score": 10,
+      "frame_description": "A close-up shot of a young couple standing under a black umbrella on a rain-soaked street at night. The man, wearing a tan overcoat layered atop a hoodie, leans in with his eyes gently closed while the woman in a green hooded raincoat holds a small wooden spoon and a single cup filled with vanilla ice cream, bringing the spoonful toward his mouth. Reflections of neon and storefront lights glimmer on the wet pavement behind them, emphasizing the soft, intimate mood.",
+      "updated_summary": "On a stormy New York City night, a couple stands close beneath a shared black umbrella on glistening, rain-soaked streets illuminated by neon and storefront lights. The man in a tan coat and hoodie and the woman in a green hooded raincoat tenderly share a single cup of ice cream\u2014she lifts a spoonful to his lips, creating an intimate moment against the softly lit urban backdrop.",
       "frame_number": 7,
       "frame_path": "data/frame_007.png"
     },
     {
-      "correctness_score": 2,
-      "coherence_score": 2,
-      "faithfulness_score": 1,
-      "frame_description": "A wide shot of four hoofed mammals, silhouetted against a warm orange sky at sunset, running across a barren, dusty savanna plain. In the background, low rolling hills stretch horizontally, and the sun\u2019s glare bathes the scene in backlit, golden haze. There is no visible water, no zebra striping on the animals, nor any sign of a lion or predator stalking nearby.",
-      "updated_summary": "The intended narrative of a mother zebra and her foal fleeing a lurking lion at a watering hole has veered off course. Instead of showing zebras at water or a predator, this frame presents an unrelated herd of antelope-like silhouettes racing across a dry plain at sunset, disrupting the established story elements and setting.",
+      "correctness_score": 9,
+      "coherence_score": 9,
+      "faithfulness_score": 9,
+      "frame_description": "A close-up of the couple standing under a large black umbrella on a wet, rain-slicked New York City street at night. The man, wearing a tan overcoat layered over a hoodie, holds a single cup of vanilla ice cream. The woman, clad in a green hooded raincoat with raindrops visible on the fabric, brings a spoonful of ice cream toward the man\u2019s lips. Behind them, blurred neon and storefront lights reflect off the puddled pavement, casting a soft, romantic glow.",
+      "updated_summary": "On a stormy New York City night, a couple huddles beneath a shared black umbrella as rain glistens on their coats and the pavement. The man, dressed in a tan coat and hoodie, and the woman, in a green hooded raincoat, tenderly feed each other from a single cup of vanilla ice cream. Neon shop lights and street reflections provide a softly lit urban backdrop, emphasizing the intimate warmth of their moment.",
       "frame_number": 8,
       "frame_path": "data/frame_008.png"
     }

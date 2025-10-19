@@ -2,182 +2,21 @@
 # ABOUTME: Streamlit web app for video frame extraction and AI-based quality analysis
 # ABOUTME: Allows users to select videos, extract frames at custom FPS, and score them against ground truth prompts
 
-import base64
 import glob
 import json
 import os
-import shutil
-import subprocess
 from pathlib import Path
 from typing import Dict
 
 import streamlit as st
-from dotenv import load_dotenv
-from openai import OpenAI
-from pydantic import BaseModel, Field
-from urllib.parse import urljoin
 
-# Load environment variables
-load_dotenv()
-DATABRICKS_HOST = os.getenv("DATABRICKS_HOST")
-DATABRICKS_TOKEN = os.environ.get("DATABRICKS_TOKEN")
-base_url = urljoin(DATABRICKS_HOST, "serving-endpoints")
+from helpers import (analyze_frame, clear_data_folder, extract_frames,
+                     get_openai_client, load_video_prompts)
 
 current_dir = Path(__file__).parent
 
-
-# Pydantic model for structured analysis output
-class FrameAnalysis(BaseModel):
-    """Structured output for frame analysis"""
-
-    correctness_score: int = Field(
-        ..., ge=1, le=10, description="How well the frame matches the ground truth"
-    )
-    coherence_score: int = Field(
-        ...,
-        ge=1,
-        le=10,
-        description="How coherent the frame is with the video sequence",
-    )
-    faithfulness_score: int = Field(
-        ...,
-        ge=1,
-        le=10,
-        description="How faithful the frame is to ground truth elements",
-    )
-    frame_description: str = Field(
-        ..., description="Detailed description of what is visible in the frame"
-    )
-    updated_summary: str = Field(
-        ...,
-        description="Comprehensive summary incorporating this and all previous frames",
-    )
-
-
 # Initialize OpenAI client for Databricks
-client = OpenAI(
-    api_key=DATABRICKS_TOKEN,
-    base_url=base_url,
-)
-
-
-def load_video_prompts():
-    """Load video prompts from JSON file"""
-    with open(current_dir / "videos/video_prompts.json", "r") as f:
-        return json.load(f)
-
-
-def clear_data_folder(output_dir):
-    """Clear all contents of the data folder"""
-    if os.path.exists(output_dir):
-        shutil.rmtree(output_dir)
-    os.makedirs(output_dir, exist_ok=True)
-
-
-def extract_frames(video_path, output_dir, fps=1):
-    """
-    Extract frames from video at specified fps using FFmpeg
-
-    Args:
-        video_path: Path to input video file
-        output_dir: Directory to save extracted frames
-        fps: Frames per second to extract (default: 1)
-
-    Returns:
-        tuple: (success: bool, frame_count: int, error_message: str)
-    """
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir, exist_ok=True)
-
-    cmd = [
-        "ffmpeg",
-        "-i",
-        video_path,
-        "-vf",
-        f"fps={fps}",
-        f"{output_dir}/frame_%03d.png",
-    ]
-
-    try:
-        result = subprocess.run(cmd, capture_output=True, text=True)
-
-        if result.returncode == 0:
-            frame_files = [
-                f
-                for f in os.listdir(output_dir)
-                if f.startswith("frame_") and f.endswith(".png")
-            ]
-            return True, len(frame_files), None
-        else:
-            return False, 0, result.stderr
-
-    except FileNotFoundError:
-        return (
-            False,
-            0,
-            "FFmpeg not found. Please install FFmpeg first (brew install ffmpeg)",
-        )
-    except Exception as e:
-        return False, 0, str(e)
-
-
-def encode_image(image_path):
-    """Encode image file to base64 string"""
-    with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode("utf-8")
-
-
-def analyze_frame(
-    image_path: str, frame_number: int, ground_truth: str, previous_summary: str = ""
-) -> FrameAnalysis:
-    """Analyze a single frame and return scoring and description"""
-
-    base64_image = encode_image(image_path)
-
-    analysis_prompt = f"""
-    You are a judge evaluating the quality and coherence of generated video frames.
-
-    Ground Truth: "{ground_truth}"
-
-    Previous Summary (if any): {previous_summary}
-
-    Please analyze this frame (Frame #{frame_number}) and provide:
-
-    1. CORRECTNESS SCORE (1-10): How well does this frame match the ground truth description?
-    2. COHERENCE SCORE (1-10): How coherent is this frame with the expected video sequence?
-    3. FAITHFULNESS SCORE (1-10): How faithful is this frame to the ground truth elements?
-    4. FRAME DESCRIPTION: Detailed description of what you see in this frame
-    5. UPDATED SUMMARY: Based on this frame and previous frames, provide an updated summary of the overall video content
-    """
-
-    try:
-        response = client.beta.chat.completions.parse(
-            model="o4-mini",
-            messages=[
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": analysis_prompt,
-                        },
-                        {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": f"data:image/png;base64,{base64_image}"
-                            },
-                        },
-                    ],
-                }
-            ],
-            response_format=FrameAnalysis,
-        )
-
-        return response.choices[0].message.parsed
-
-    except Exception as e:
-        st.error(f"Error analyzing frame {frame_number}: {e}")
-        return None
+client = get_openai_client()
 
 
 def analyze_all_frames(ground_truth: str, summary_placeholder=None) -> Dict:
@@ -197,7 +36,14 @@ def analyze_all_frames(ground_truth: str, summary_placeholder=None) -> Dict:
         frame_number = idx + 1
         status_text.text(f"Analyzing frame {frame_number}/{len(frame_files)}...")
 
-        frame_result = analyze_frame(frame_path, frame_number, ground_truth, current_summary)
+        frame_result = analyze_frame(
+            client,
+            frame_path,
+            frame_number,
+            ground_truth,
+            current_summary,
+            error_handler=st.error,
+        )
 
         if frame_result:
             frame_dict = frame_result.model_dump()
@@ -208,7 +54,9 @@ def analyze_all_frames(ground_truth: str, summary_placeholder=None) -> Dict:
 
             # Update summary in real-time if placeholder provided
             if summary_placeholder:
-                summary_placeholder.info(f"**Current Summary (after frame {frame_number}):**\n\n{current_summary}")
+                summary_placeholder.info(
+                    f"**Current Summary (after frame {frame_number}):**\n\n{current_summary}"
+                )
 
         progress_bar.progress((idx + 1) / len(frame_files))
 
@@ -242,9 +90,7 @@ def analyze_all_frames(ground_truth: str, summary_placeholder=None) -> Dict:
 
 def main():
     st.set_page_config(
-        page_title="Video Quality Analyzer",
-        page_icon="🎬",
-        layout="wide"
+        page_title="Video Quality Analyzer", page_icon="🎬", layout="wide"
     )
 
     st.title("🎬 Video Quality Analyzer")
@@ -261,7 +107,7 @@ def main():
         video_name = st.selectbox(
             "Select Video",
             options=list(video_prompts.keys()),
-            format_func=lambda x: x.title()
+            format_func=lambda x: x.title(),
         )
 
         # FPS selection
@@ -273,8 +119,7 @@ def main():
         }
 
         fps_label = st.selectbox(
-            "Frame Extraction Rate",
-            options=list(fps_options.keys())
+            "Frame Extraction Rate", options=list(fps_options.keys())
         )
         fps = fps_options[fps_label]
 
@@ -284,6 +129,25 @@ def main():
         st.subheader("📋 Selected Configuration")
         st.write(f"**Video:** {video_name.title()}")
         st.write(f"**FPS:** {fps}")
+
+        st.markdown("---")
+
+        # What is this? expander
+        with st.expander("❓ What is this?"):
+            st.write("""
+            This application analyzes AI-generated videos by extracting frames and evaluating them against their original generation prompts.
+
+            **How it works:**
+            1. Extract frames from a video at your chosen rate (FPS)
+            2. AI analyzes each frame for correctness, coherence, and faithfulness to the prompt
+            3. Get detailed scores and descriptions for quality assessment
+
+            **Key Feature - Temporal Understanding:**
+            The summary builds over time by using the previous summary as context for analyzing the next frame. This allows the AI to track changes and understand the video's progression through time, not just individual static frames.
+
+            **About the videos:**
+            I generated the videos using **Sora** (OpenAI's video generation model), I used the same prompts as the samples on their website.
+            """)
 
     # Check if frames exist
     output_dir = current_dir / "data"
@@ -314,7 +178,12 @@ def main():
             st.info(video_prompts[video_name]["prompt"])
 
             # Extract button right below prompt
-            extract_button = st.button("🎞️ Extract Frames", use_container_width=True, type="primary", key="extract_btn")
+            extract_button = st.button(
+                "🎞️ Extract Frames",
+                use_container_width=True,
+                type="primary",
+                key="extract_btn",
+            )
 
             # Show extraction results or status right below button
             if extract_button:
@@ -329,22 +198,28 @@ def main():
                 if success:
                     st.session_state.extraction_success = {
                         "success": True,
-                        "frame_count": frame_count
+                        "frame_count": frame_count,
                     }
                     st.rerun()  # Rerun to update frames_exist state
                 else:
                     st.session_state.extraction_success = {
                         "success": False,
-                        "error_msg": error_msg
+                        "error_msg": error_msg,
                     }
 
             # Display success/error messages from session state
             if st.session_state.extraction_success:
                 if st.session_state.extraction_success["success"]:
-                    st.success(f"✅ Successfully extracted {st.session_state.extraction_success['frame_count']} frames!")
-                    st.info("👉 Switch to 'Analyze Frames' tab to start the AI analysis")
+                    st.success(
+                        f"✅ Successfully extracted {st.session_state.extraction_success['frame_count']} frames!"
+                    )
+                    st.info(
+                        "👉 Switch to 'Analyze Frames' tab to start the AI analysis"
+                    )
                 else:
-                    st.error(f"❌ Frame extraction failed: {st.session_state.extraction_success['error_msg']}")
+                    st.error(
+                        f"❌ Frame extraction failed: {st.session_state.extraction_success['error_msg']}"
+                    )
 
         with col2:
             st.subheader("🎥 Video Info")
@@ -373,7 +248,11 @@ def main():
                     idx = i + j
                     if idx < len(frame_files):
                         with col:
-                            st.image(frame_files[idx], caption=f"Frame {idx + 1}", use_container_width=True)
+                            st.image(
+                                frame_files[idx],
+                                caption=f"Frame {idx + 1}",
+                                use_container_width=True,
+                            )
 
     # TAB 2: Frame Analysis
     with tab2:
@@ -383,10 +262,17 @@ def main():
 
         if not frames_exist:
             st.warning("⚠️ No frames found. Please extract frames first.")
-            st.info("👈 Go to the 'Extract Frames' tab to extract frames before analyzing")
+            st.info(
+                "👈 Go to the 'Extract Frames' tab to extract frames before analyzing"
+            )
         else:
             # Analyze button right below prompt
-            analyze_button = st.button("🔍 Analyze Frames", use_container_width=True, type="primary", key="analyze_btn")
+            analyze_button = st.button(
+                "🔍 Analyze Frames",
+                use_container_width=True,
+                type="primary",
+                key="analyze_btn",
+            )
 
             # Run analysis when button is clicked
             if analyze_button:
@@ -398,7 +284,7 @@ def main():
                 with st.spinner("Analyzing frames with AI..."):
                     analysis_results = analyze_all_frames(
                         video_prompts[video_name]["prompt"],
-                        summary_placeholder=summary_placeholder
+                        summary_placeholder=summary_placeholder,
                     )
 
                 if analysis_results:
@@ -422,30 +308,24 @@ def main():
 
                 with metric_cols[0]:
                     st.metric(
-                        "Correctness",
-                        f"{scores['average_correctness']}/10",
-                        delta=None
+                        "Correctness", f"{scores['average_correctness']}/10", delta=None
                     )
 
                 with metric_cols[1]:
                     st.metric(
-                        "Coherence",
-                        f"{scores['average_coherence']}/10",
-                        delta=None
+                        "Coherence", f"{scores['average_coherence']}/10", delta=None
                     )
 
                 with metric_cols[2]:
                     st.metric(
                         "Faithfulness",
                         f"{scores['average_faithfulness']}/10",
-                        delta=None
+                        delta=None,
                     )
 
                 with metric_cols[3]:
                     st.metric(
-                        "Overall Score",
-                        f"{scores['overall_score']}/10",
-                        delta=None
+                        "Overall Score", f"{scores['overall_score']}/10", delta=None
                     )
 
                 # Display final summary
@@ -456,7 +336,9 @@ def main():
                 st.subheader("🎞️ Frame-by-Frame Analysis")
 
                 for result in analysis_results["frame_results"]:
-                    with st.expander(f"Frame {result['frame_number']} - Scores: C:{result['correctness_score']} | Co:{result['coherence_score']} | F:{result['faithfulness_score']}"):
+                    with st.expander(
+                        f"Frame {result['frame_number']} - Scores: C:{result['correctness_score']} | Co:{result['coherence_score']} | F:{result['faithfulness_score']}"
+                    ):
                         col1, col2 = st.columns([1, 2])
 
                         with col1:
@@ -469,11 +351,17 @@ def main():
                             st.write("**Scores:**")
                             score_col1, score_col2, score_col3 = st.columns(3)
                             with score_col1:
-                                st.metric("Correctness", f"{result['correctness_score']}/10")
+                                st.metric(
+                                    "Correctness", f"{result['correctness_score']}/10"
+                                )
                             with score_col2:
-                                st.metric("Coherence", f"{result['coherence_score']}/10")
+                                st.metric(
+                                    "Coherence", f"{result['coherence_score']}/10"
+                                )
                             with score_col3:
-                                st.metric("Faithfulness", f"{result['faithfulness_score']}/10")
+                                st.metric(
+                                    "Faithfulness", f"{result['faithfulness_score']}/10"
+                                )
 
                 # Save results
                 results_file = "frame_analysis_results.json"
@@ -488,7 +376,7 @@ def main():
                     data=json.dumps(analysis_results, indent=2),
                     file_name=results_file,
                     mime="application/json",
-                    key="download_results_btn"
+                    key="download_results_btn",
                 )
 
             # Show all extracted frames at the bottom
@@ -503,7 +391,11 @@ def main():
                     idx = i + j
                     if idx < len(frame_files):
                         with col:
-                            st.image(frame_files[idx], caption=f"Frame {idx + 1}", use_container_width=True)
+                            st.image(
+                                frame_files[idx],
+                                caption=f"Frame {idx + 1}",
+                                use_container_width=True,
+                            )
 
 
 if __name__ == "__main__":
