@@ -3,36 +3,36 @@
   "total_frames": 8,
   "aggregate_scores": {
     "average_correctness": 8.25,
-    "average_coherence": 8.12,
+    "average_coherence": 8.25,
     "average_faithfulness": 8.12,
-    "overall_score": 8.17
+    "overall_score": 8.21
   },
-  "final_summary": "Following the mother zebra and foal\u2019s desperate dash through the watering hole, the shot unexpectedly cuts to a small herd of antelope-like animals racing across an arid plain at sunset. The zebras have vanished, the water and predator tension are absent, and the scene diverges from the original lion\u2010pursuit narrative.",
+  "final_summary": "The intended narrative of a mother zebra and her foal fleeing a lurking lion at a watering hole has veered off course. Instead of showing zebras at water or a predator, this frame presents an unrelated herd of antelope-like silhouettes racing across a dry plain at sunset, disrupting the established story elements and setting.",
   "frame_results": [
     {
-      "correctness_score": 9,
+      "correctness_score": 10,
       "coherence_score": 9,
-      "faithfulness_score": 9,
-      "frame_description": "A full shot of a zebra and its foal standing at the edge of a watering hole in a dry savannah. The adult zebra lowers its head to drink, while the baby zebra stays close by, looking alert. Tall golden grass surrounds the water\u2019s edge. In the background, partially concealed by the grass, a lion crouches low, eyes fixed on the zebras. Sparse acacia trees dot the distant horizon under a pale sky.",
-      "updated_summary": "At a sunlit watering hole on the African plains, a mother zebra and her foal pause to drink, unaware or wary of danger. A lion crouches hidden in the tall grass behind them, intensifying the tension as it prepares to stalk.",
+      "faithfulness_score": 10,
+      "frame_description": "The frame shows a mother zebra standing at the edge of a watering hole, drinking, with her foal standing close by. Golden, waist-high grass dominates the midground, interspersed with a few acacia trees in the background. Partially concealed in the tall grass behind the zebras, a lion (likely a lioness) crouches low, its head and shoulders visible as it watches the pair. The overall lighting is warm and soft, suggesting early morning or late afternoon, giving a cinematic feel.",
+      "updated_summary": "A cinematic savanna sequence opens with a mother zebra and her foal at a watering hole, drinking peacefully under warm, golden-hour light. Unbeknownst to them, a lioness lurks in the tall grass behind, setting up a tense predator\u2013prey dynamic.",
       "frame_number": 1,
       "frame_path": "data/frame_001.png"
     },
     {
-      "correctness_score": 9,
-      "coherence_score": 9,
-      "faithfulness_score": 9,
-      "frame_description": "The frame shows a mother zebra and her foal stepping out of the muddy edge of a watering hole. The mother is leading, one front hoof lifted and dripping water back into the pool, while the foal follows closely behind. In the midground, tall golden grass partially obscures a young lion crouched low, eyes fixed on the zebras. Sparse acacia trees punctuate the distant horizon under warm, late-afternoon light, enhancing the tense atmosphere.",
-      "updated_summary": "At a sunlit African watering hole, a mother zebra and her foal pause to drink but then sense danger. As they step away from the water\u2019s edge, a young lion remains hidden in the tall golden grass, its gaze locked on them. The scene intensifies as the zebras begin to move, unaware that the lion is preparing to pounce.",
+      "correctness_score": 10,
+      "coherence_score": 10,
+      "faithfulness_score": 10,
+      "frame_description": "In the golden-hour savanna, a mother zebra and her foal are seen stepping out of a shallow watering hole. The adult\u2019s front leg is raised mid-stride, splashing water, while the foal follows close behind along the muddy edge. In the background, tall, dry grass frames a crouching lioness, her eyes fixed on the zebras, partly concealed by the amber vegetation. Acacia trees dot the horizon under a pale sky.",
+      "updated_summary": "The video opens on a serene savanna watering hole where a mother zebra and her foal drink under warm, golden light. Suddenly, the mother and foal rise and begin to move away from the water\u2019s edge. Unbeknownst to them, a lioness crouches in the tall, dry grass behind, her gaze locked on the pair. The rising tension foreshadows an imminent chase as the zebras sense danger.",
       "frame_number": 2,
       "frame_path": "data/frame_002.png"
     },
     {
-      "correctness_score": 9,
-      "coherence_score": 9,
-      "faithfulness_score": 9,
-      "frame_description": "A sunlit scene at the edge of a watering hole shows a mother zebra and her foal bolting to the right. The foal\u2019s front legs are mid-air as it struggles to keep pace, and dust kicks up around their hooves. In the background, tall golden grass hides a young lion\u2014only its tawny head, ears and a portion of its tail are visible as it crouches low, eyes fixed on the fleeing zebras. Sparse acacia trees dot the horizon under a pale sky.",
-      "updated_summary": "At the watering hole in the African savanna, a mother zebra and her foal pause to drink but sense imminent danger. Suddenly, they break into a frantic run, kicking up dust at the water\u2019s edge. In the tall golden grass behind them, a young lion remains partially concealed, its gaze locked on its prey as it prepares to strike.",
+      "correctness_score": 10,
+      "coherence_score": 10,
+      "faithfulness_score": 10,
+      "frame_description": "A vivid moment captures the mother zebra mid-stride as she leaps away from the water\u2019s edge, her hooves kicking up dirt and water droplets. Her foal follows closely but appears to slip, its legs splayed in a brief stumble. In the background, partially hidden in the tall, golden savanna grass, the head and shoulders of a lioness come into view, low and poised, her eyes fixed on the fleeing pair. Acacia trees dot the horizon under warm, late-afternoon light.",
+      "updated_summary": "After quietly drinking at the watering hole, the mother zebra and her foal suddenly bolt as they sense danger. The mother leads the sprint, while the foal struggles momentarily in the mud. Behind them, a lioness emerges from the tall grass, crouching low and ready to strike. The chase has begun, heightening the tension of predator and prey in the golden savanna.",
       "frame_number": 3,
       "frame_path": "data/frame_003.png"
     },
@@ -40,26 +40,26 @@
       "correctness_score": 9,
       "coherence_score": 9,
       "faithfulness_score": 9,
-      "frame_description": "In this frame, a zebra foal is captured mid-leap as it bounds out of a shallow watering hole, its hooves kicking up a spray of water and dust. The hindquarters of the adult mother zebra appear at right, already sprinting away. Behind them, tall, golden savanna grass stretches into the distance. Partially concealed among the grass in the upper right, the head of a young lion is just visible, its eyes fixed on the escaping zebras. In the background stand a few acacia trees under a pale sky.",
-      "updated_summary": "At an African savanna watering hole, a mother zebra and her foal abruptly dash away from the water\u2019s edge after sensing danger. The foal leaps over the shallow pool, kicking up water and dust, while the mother leads the flight. In the tall golden grass behind them, a young lion\u2019s head emerges as it prepares to give chase.",
+      "frame_description": "A mother zebra and her foal are sprinting away from a small watering hole. The mare is in front, legs extended, while the foal follows closely, kicking up a spray of mud and dust as it splashes through the shallow water. In the background\u2019s tall golden grass, the head of a lioness peeks through the stalks, eyes fixed on the fleeing zebras.",
+      "updated_summary": "The mother zebra and her foal, having sensed danger at the watering hole, break into a panicked run. Their hooves churn up mud and dust as they dart across the water\u2019s edge. From the tall savanna grass behind them, the lioness emerges low to the ground, her gaze locked on the pair. The predator-prey chase surges forward, heightening the suspense across the golden plain.",
       "frame_number": 4,
       "frame_path": "data/frame_004.png"
     },
     {
-      "correctness_score": 10,
-      "coherence_score": 9,
-      "faithfulness_score": 10,
-      "frame_description": "A medium shot shows a mother zebra and her foal sprinting through the shallow edge of a watering hole, their hooves kicking up splashes of water and mud. In the background, a young lion bursts out of tall, dry golden grass, crouched low and locked onto its fleeing prey, mouth slightly open and muscles tensed for the chase.",
-      "updated_summary": "At an African savanna watering hole, a mother zebra and her foal abruptly dash away from the water\u2019s edge after sensing danger. The foal leaps and splashes through the shallow pool behind its mother, while in the tall golden grass a young lion emerges, breaking cover and giving chase across the water.",
+      "correctness_score": 9,
+      "coherence_score": 8,
+      "faithfulness_score": 9,
+      "frame_description": "A medium shot captures the zebra mother and her foal splashing through the shallow edge of the watering hole, mud and water flying under their pounding hooves. Behind them, almost fully upright and mid-stride, a lioness emerges from the golden tall grass, her muscles tensed and eyes locked on the fleeing pair. In the distance, a lone acacia tree and scrub brush silhouette the savanna horizon under a pale sky. The contrast between the striped prey and tawny predator heightens the imminent danger.",
+      "updated_summary": "The mother zebra and her foal, spooked at the watering hole, dash through the muddy shallows with water splashing around them. From the tall, dry savanna grass, a lioness has now fully risen to her feet and is in active pursuit, closing the gap as the chase accelerates across the dusty plain under an acacia-dotted skyline.",
       "frame_number": 5,
       "frame_path": "data/frame_005.png"
     },
     {
-      "correctness_score": 9,
+      "correctness_score": 7,
       "coherence_score": 9,
-      "faithfulness_score": 9,
-      "frame_description": "A wide shot of a savanna watering hole shows a mother zebra sprinting through shallow water, splashing as she runs. Her foal closely follows, its legs outstretched mid-stride, also kicking up droplets. In the background, a golden grass plain stretches to the horizon, punctuated by a lone umbrella thorn tree. The sky is pale, and no predator is visible in this frame, focusing solely on the zebras\u2019 flight across the water.",
-      "updated_summary": "At a watering hole on the African savanna, a mother zebra and her foal abruptly bolt from the water\u2019s edge. They dash through the shallow pool\u2014water splashing beneath their hooves\u2014while the tall golden grass and a lone umbrella thorn tree form the backdrop. Earlier, a young lion lurked unseen in the grass, prompting the zebras\u2019 urgent escape.",
+      "faithfulness_score": 7,
+      "frame_description": "Wide shot of a mother zebra and her foal running across the shallow edge of a watering hole. The mother zebra is in the foreground, splashing through the water, and the foal follows closely behind, its legs extended in mid\u2010stride. In the background, tall golden savanna grass stretches toward the horizon, punctuated by a single umbrella acacia tree under a pale sky. No predator is visible in this frame.",
+      "updated_summary": "Spooked by a lurking lioness, a mother zebra and her foal bolt from a watering hole, racing through the shallow water with powerful strides that send sprays of water flying. The chase presses them across a golden savanna plain dotted with acacia trees as they flee imminent danger.",
       "frame_number": 6,
       "frame_path": "data/frame_006.png"
     },
@@ -67,8 +67,8 @@
       "correctness_score": 9,
       "coherence_score": 9,
       "faithfulness_score": 9,
-      "frame_description": "The frame captures a mother zebra and her foal in full stride as they run across a shallow watering hole. The mother zebra is leading on the right, her legs mid-air, while the foal on the left follows closely, even playfully tugging at her tail. Water splashes beneath their hooves, creating ripples and clear reflections of their striped bodies. Behind them stretches a flat expanse of golden savanna grass, with a lone acacia\u2010type bush visible near the horizon under a pale, overcast sky.",
-      "updated_summary": "At the watering hole on the African savanna, a mother zebra and her foal have bolted from the water\u2019s edge in response to a lurking lion. In this latest shot, they sprint side by side through the shallow pool, water spraying underfoot and their reflections mirrored on the wet surface. The backdrop of tall golden grass and sparse bush underscores the urgency of their flight from the unseen predator.",
+      "frame_description": "A mother zebra leads her foal running swiftly across a shallow watering hole. Both animals\u2019 reflections are clearly visible on the water\u2019s surface. The foal appears to nibble or brush against the mother\u2019s tail as they bound forward. In the background, tall golden savanna grass stretches to the horizon under a pale sky.",
+      "updated_summary": "Spooked by a lurking predator, a mother zebra and her foal bolt away from a watering hole. They race through the shallow water, leaving crisp reflections behind, with golden savanna grass framing their urgent flight toward safety.",
       "frame_number": 7,
       "frame_path": "data/frame_007.png"
     },
@@ -76,8 +76,8 @@
       "correctness_score": 2,
       "coherence_score": 2,
       "faithfulness_score": 1,
-      "frame_description": "Silhouetted hoofed mammals, likely antelopes rather than zebras, sprint across a dry savanna plain at sunset. In the background, a low ridge of hills is bathed in warm light, while the foreground shows flat, dusty ground. There is no visible water, no zebra mother or foal, and no sign of a lurking lion.",
-      "updated_summary": "Following the mother zebra and foal\u2019s desperate dash through the watering hole, the shot unexpectedly cuts to a small herd of antelope-like animals racing across an arid plain at sunset. The zebras have vanished, the water and predator tension are absent, and the scene diverges from the original lion\u2010pursuit narrative.",
+      "frame_description": "A wide shot of four hoofed mammals, silhouetted against a warm orange sky at sunset, running across a barren, dusty savanna plain. In the background, low rolling hills stretch horizontally, and the sun\u2019s glare bathes the scene in backlit, golden haze. There is no visible water, no zebra striping on the animals, nor any sign of a lion or predator stalking nearby.",
+      "updated_summary": "The intended narrative of a mother zebra and her foal fleeing a lurking lion at a watering hole has veered off course. Instead of showing zebras at water or a predator, this frame presents an unrelated herd of antelope-like silhouettes racing across a dry plain at sunset, disrupting the established story elements and setting.",
       "frame_number": 8,
       "frame_path": "data/frame_008.png"
     }

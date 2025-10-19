@@ -9,6 +9,7 @@ import sys
 
 current_dir = Path(__file__).parent
 
+
 def clear_data_folder(output_dir):
     """
     Clear all contents of the data folder
@@ -144,7 +145,6 @@ def extract_frames(video_path, output_dir, fps=1):
 
 if __name__ == "__main__":
     # Default values
-
 
     video_name = "hunt"
 

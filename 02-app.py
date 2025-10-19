@@ -46,7 +46,6 @@ def encode_video(video_path):
         return base64.b64encode(video_file.read()).decode("utf-8")
 
 
-
 # Ground truth for comparison
 GROUND_TRUTH = prompts[video_name]["prompt"]
 
@@ -58,10 +57,16 @@ class FrameAnalysis(BaseModel):
         ..., ge=1, le=10, description="How well the frame matches the ground truth"
     )
     coherence_score: int = Field(
-        ..., ge=1, le=10, description="How coherent the frame is with the video sequence"
+        ...,
+        ge=1,
+        le=10,
+        description="How coherent the frame is with the video sequence",
     )
     faithfulness_score: int = Field(
-        ..., ge=1, le=10, description="How faithful the frame is to ground truth elements"
+        ...,
+        ge=1,
+        le=10,
+        description="How faithful the frame is to ground truth elements",
     )
     frame_description: str = Field(
         ..., description="Detailed description of what is visible in the frame"
@@ -170,7 +175,9 @@ def analyze_all_frames() -> Dict:
     for frame_path in track(frame_files, description="[green]Analyzing frames..."):
         frame_number = len(results) + 1
 
-        frame_result = analyze_frame(frame_path, frame_number, current_summary).model_dump()
+        frame_result = analyze_frame(
+            frame_path, frame_number, current_summary
+        ).model_dump()
         frame_result["frame_number"] = frame_number
         frame_result["frame_path"] = frame_path
 
