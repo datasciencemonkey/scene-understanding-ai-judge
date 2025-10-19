@@ -19,7 +19,7 @@ current_dir = Path(__file__).parent
 client = get_openai_client()
 
 
-def analyze_all_frames(ground_truth: str, summary_placeholder=None) -> Dict:
+def analyze_all_frames(ground_truth: str, summary_placeholder=None, image_placeholder=None) -> Dict:
     """Analyze all frames in the data directory"""
     frame_files = sorted(glob.glob("data/frame_*.png"))
 
@@ -35,6 +35,10 @@ def analyze_all_frames(ground_truth: str, summary_placeholder=None) -> Dict:
     for idx, frame_path in enumerate(frame_files):
         frame_number = idx + 1
         status_text.text(f"Analyzing frame {frame_number}/{len(frame_files)}...")
+
+        # Update image in real-time if placeholder provided
+        if image_placeholder:
+            image_placeholder.image(frame_path, caption=f"Analyzing Frame {frame_number}/{len(frame_files)}", width=400)
 
         frame_result = analyze_frame(
             client,
@@ -180,7 +184,7 @@ def main():
             # Extract button right below prompt
             extract_button = st.button(
                 "🎞️ Extract Frames",
-                use_container_width=True,
+                width='stretch',
                 type="primary",
                 key="extract_btn",
             )
@@ -251,7 +255,7 @@ def main():
                             st.image(
                                 frame_files[idx],
                                 caption=f"Frame {idx + 1}",
-                                use_container_width=True,
+                                width="stretch",
                             )
 
     # TAB 2: Frame Analysis
@@ -269,7 +273,7 @@ def main():
             # Analyze button right below prompt
             analyze_button = st.button(
                 "🔍 Analyze Frames",
-                use_container_width=True,
+                width="stretch",
                 type="primary",
                 key="analyze_btn",
             )
@@ -278,13 +282,15 @@ def main():
             if analyze_button:
                 st.info(f"Found {len(frame_files)} frames to analyze")
 
-                # Create placeholder for real-time summary updates
+                # Create placeholders for real-time updates
+                image_placeholder = st.empty()
                 summary_placeholder = st.empty()
 
                 with st.spinner("Analyzing frames with AI..."):
                     analysis_results = analyze_all_frames(
                         video_prompts[video_name]["prompt"],
                         summary_placeholder=summary_placeholder,
+                        image_placeholder=image_placeholder,
                     )
 
                 if analysis_results:
@@ -342,7 +348,7 @@ def main():
                         col1, col2 = st.columns([1, 2])
 
                         with col1:
-                            st.image(result["frame_path"], use_container_width=True)
+                            st.image(result["frame_path"], width="stretch")
 
                         with col2:
                             st.write("**Description:**")
@@ -394,7 +400,7 @@ def main():
                             st.image(
                                 frame_files[idx],
                                 caption=f"Frame {idx + 1}",
-                                use_container_width=True,
+                                width="stretch",
                             )
 
 

@@ -34,7 +34,22 @@ echo "DATABRICKS_TOKEN=your_token_here" > .env
 
 ## 🎯 Usage
 
-### Step 1: Extract Frames
+### Option 1: Web UI (Recommended)
+
+```bash
+uv run streamlit run streamlit_app.py
+```
+
+Launch the interactive Streamlit web interface featuring:
+- **Two-tab layout**: Extract frames and analyze in separate tabs
+- **Video selection**: Choose from multiple test videos
+- **Configurable FPS**: Select extraction rate (0.5-3 fps)
+- **Real-time analysis**: Watch frames being analyzed with live summaries
+- **Interactive results**: View scores, descriptions, and download JSON reports
+
+### Option 2: CLI Tools
+
+#### Step 1: Extract Frames
 
 ```bash
 uv run 01-frame-split.py
@@ -42,7 +57,7 @@ uv run 01-frame-split.py
 
 Extracts frames from `veo3-generations.mp4` at your chosen FPS rate (0.5, 1, 2, or custom).
 
-### Step 2: Analyze Frames
+#### Step 2: Analyze Frames
 
 ```bash
 uv run 02-app.py
@@ -64,10 +79,12 @@ The analysis provides:
 
 ## 🏗️ Architecture
 
-- **01-frame-split.py**: Video preprocessing using FFmpeg
-- **02-app.py**: Main analysis engine using OpenAI-compatible API
+- **streamlit_app.py**: Interactive web UI with two-tab interface
+- **helpers.py**: Shared utilities for frame extraction and analysis
+- **01-frame-split.py**: CLI tool for video preprocessing using FFmpeg
+- **02-app.py**: CLI analysis engine with rich terminal UI
 - Uses base64 encoding for image transmission
-- Rich terminal UI with progress tracking and color-coded scores
+- Pydantic models for structured AI responses
 
 ## 📝 Notes
 

@@ -1,0 +1,8 @@
+command: ['streamlit', 'run', 'streamlit_app.py']
+env:
+  - name: 'DATABRICKS_TOKEN'
+    valueFrom: 'DATABRICKS_TOKEN'
+  - name: 'DATABRICKS_HOST'
+    valueFrom: 'DATABRICKS_HOST'
+  - name: 'MLFLOW_EXPERIMENT_ID'
+    valueFrom: 'MLFLOW_EXPERIMENT_ID'

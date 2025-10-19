@@ -1,85 +1,49 @@
 {
-  "ground_truth": "A video of a couple sharing a cup of ice cream on a stormy night New York City, soft lighting",
-  "total_frames": 8,
+  "ground_truth": "A direct continuation of the existing shot of a child coloring a dragon on paper. Begin with the crayon already mid-stroke, camera pushing slowly inward at the same steady pace and low desk-level angle. After three seconds, the drawing peels gently from the page and rises into three-dimensional space, wax lines smoking off as the dragon blinks awake. Maintain the 35 mm macro tilt-shift lens with gentle focus fall-off and Pearlescent 1/4 filtration, preserving the soft pastel texture and subsurface scatter of the paper. The child's desk and lighting should remain consistent in color and tone, with the transformation unfolding seamlessly as if no cut occurred.",
+  "total_frames": 4,
   "aggregate_scores": {
-    "average_correctness": 9.12,
-    "average_coherence": 9.38,
-    "average_faithfulness": 9.12,
-    "overall_score": 9.21
+    "average_correctness": 9.0,
+    "average_coherence": 9.5,
+    "average_faithfulness": 9.25,
+    "overall_score": 9.25
   },
-  "final_summary": "On a stormy New York City night, a couple huddles beneath a shared black umbrella as rain glistens on their coats and the pavement. The man, dressed in a tan coat and hoodie, and the woman, in a green hooded raincoat, tenderly feed each other from a single cup of vanilla ice cream. Neon shop lights and street reflections provide a softly lit urban backdrop, emphasizing the intimate warmth of their moment.",
+  "final_summary": "The camera continues a slow, desk-level inward push on a child\u2019s pastel dragon drawing under warm lamp light. The dragon\u2019s right wing has fully curved upward into three-dimensional space, and its neck and head have peeled off the paper, blinking awake as wisps of wax smoke rise from its edges. The child\u2019s right hand still holds a green crayon mid-stroke. The soft pastel texture, subsurface scattering of the paper, and warm tone remain consistent, with the 35 mm macro tilt-shift aesthetic preserved through shallow depth of field and gentle focus fall-off.",
   "frame_results": [
     {
-      "correctness_score": 9,
-      "coherence_score": 10,
+      "correctness_score": 8,
+      "coherence_score": 9,
       "faithfulness_score": 9,
-      "frame_description": "A young couple stands close together under a large black umbrella on a rainy city street at night. The man wears a tan overcoat and hoodie, holding a small cup of light-colored ice cream. The woman, wearing a raincoat with a hood, brings a spoonful of ice cream to her mouth. In the blurred background are wet pavement, glowing storefront lights, and the faint outline of a yellow taxi, suggesting a stormy New York City night with soft, warm ambient lighting.",
-      "updated_summary": "A romantic scene of a couple in rainy New York City sharing a single cup of ice cream under an umbrella on a stormy night, illuminated by soft city lights.",
+      "frame_description": "A low, desk-level close-up shows a child\u2019s hand gripping a teal crayon mid-stroke as they color the wing of a whimsical dragon sketched on paper. The warm glow of a desk lamp illuminates the desk surface, while the background remains softly blurred by a shallow depth of field (tilt-shift style). Other crayons lie scattered in the foreground and background, and the paper\u2019s pastel texture and subtle subsurface scattering are clearly visible. The composition suggests the camera is pushing slowly inward, maintaining a soft focus fall-off around the edges.",
+      "updated_summary": "The shot continues seamlessly from the previous scene: a child is coloring a dragon drawing on a wooden desk under a warm lamp. The camera, at a low desk-level angle with a 35 mm macro tilt-shift look, is pushing closer, capturing the crayon mid-stroke and preserving soft pastel textures and focus fall-off. The scene remains consistent in lighting, tone, and desk setup, setting up the forthcoming transformation of the dragon from 2D art into a three-dimensional form.",
       "frame_number": 1,
       "frame_path": "data/frame_001.png"
     },
     {
       "correctness_score": 9,
-      "coherence_score": 10,
+      "coherence_score": 9,
       "faithfulness_score": 9,
-      "frame_description": "A close-up of a couple standing under a black umbrella in the rain on a New York City street at night. The man, wearing a brown coat and hoodie, holds a single cup of ice cream while the woman in a green raincoat leans in to taste it. Raindrops are visible on the umbrella and their coats; blurred city lights and a yellow taxi are seen in the softly lit background.",
-      "updated_summary": "A romantic scene unfolds on a stormy New York City night: a couple huddles together under a single umbrella, sharing a cup of ice cream. The rain falls around them as they lean close, illuminated by soft urban lights and passing traffic.",
+      "frame_description": "A close-up of a child\u2019s hand holding a turquoise crayon mid-stroke as they color the dragon\u2019s wing on a sheet of paper. The dragon illustration features soft pastel outlines in purple and teal. A warm desk lamp glows in the blurred background, casting a gentle, even light on the wooden surface. The shallow depth of field and soft focus fall-off on the edges convey the 35 mm macro tilt-shift look, preserving the paper\u2019s subtle texture and the crayons\u2019 waxy sheen.",
+      "updated_summary": "The shot remains a seamless continuation of the previous scene: at a low desk-level angle, the camera pushes in on a child mid-stroke as they color a pastel dragon on a wooden desk under warm lamp light. The 35 mm macro tilt-shift aesthetic\u2014with shallow depth of field and soft focus fall-off\u2014preserves the paper\u2019s texture and crayon wax sheen. The dragon remains two-dimensional, with no sign of peeling or transformation yet, setting the stage for the upcoming emergence.",
       "frame_number": 2,
       "frame_path": "data/frame_002.png"
     },
     {
       "correctness_score": 9,
-      "coherence_score": 9,
+      "coherence_score": 10,
       "faithfulness_score": 9,
-      "frame_description": "The frame shows a young couple standing close together under a large black umbrella on a rainy city street at night. The man, wearing a brown coat and hoodie, gently leans in to take a bite of ice cream held by the woman, who is dressed in a green raincoat with the hood up. Raindrops glisten on the umbrella\u2019s surface and on their coats. In the softly lit background, blurred outlines of storefronts and the faint glow of yellow taxi lights suggest a New York City street scene under heavy rain.",
-      "updated_summary": "On a stormy night in New York City, a couple shares a single umbrella as they stand in the rain-lit streets. Dressed in warm coats, the woman feeds the man a spoonful of ice cream while they gaze fondly at each other. Soft urban lights and passing taxi headlights glow in the wet background, highlighting the intimate, romantic moment.",
+      "frame_description": "The frame shows a low-angle, close-up view of a child\u2019s hand holding a teal-green crayon mid-stroke as they color the dragon\u2019s curled wing. That wing has begun to peel up off the paper, folding into three-dimensional space with soft pastel surfaces. Wisps of semi-transparent smoke spiral upward from the wax lines. The remainder of the dragon sketch lies flat on the desk under warm lamp illumination. The wooden desktop is visible in the foreground and background, with art supplies and a softly lit lamp blurred by the shallow depth of field.",
+      "updated_summary": "Continuing the seamless desk-level push-in of a child coloring a pastel dragon under warm lamp light with a 35 mm macro tilt-shift lens aesthetic, the crayon is mid-stroke and now the dragon\u2019s wing gently peels from the page. It curls into 3D space as faint smoke rises from the wax lines. The lighting, paper texture, and overall color tone remain consistent, setting up the dragon\u2019s impending full emergence.",
       "frame_number": 3,
       "frame_path": "data/frame_003.png"
-    },
-    {
-      "correctness_score": 9,
-      "coherence_score": 9,
-      "faithfulness_score": 9,
-      "frame_description": "A close-up shot of the couple huddled beneath a large black umbrella on a rain-slicked New York City sidewalk. The woman, wearing a green hooded raincoat, brings a spoonful of ice cream to the man\u2019s lips. He leans forward, eyes gently closed, anticipating the bite. He is dressed in a brown wool coat layered over a gray hoodie. In the softly lit background, blurred neon storefronts and wet pavement reflect muted city lights, emphasizing the intimate, cozy moment.",
-      "updated_summary": "On a stormy night in New York City, a couple shares an intimate moment beneath a single umbrella in the rain-drenched streets. Dressed in warm coats and hoods, the woman lovingly feeds the man a spoonful of ice cream from their shared cup. Soft urban lights, neon signs, and passing headlights glow off the wet pavement, creating a tender, romantic atmosphere.",
-      "frame_number": 4,
-      "frame_path": "data/frame_004.png"
-    },
-    {
-      "correctness_score": 9,
-      "coherence_score": 9,
-      "faithfulness_score": 9,
-      "frame_description": "The frame shows a close-up of a couple huddled beneath a large black umbrella on a rainy city street at night. The woman, wearing a green raincoat with the hood up, holds a small cup of vanilla ice cream and offers a spoonful to the man. He is dressed in a tan wool coat layered over a hoodie and leans in with closed eyes to taste the ice cream. Soft neon signage and blurred shopfronts glow in the wet pavement behind them, emphasizing the romantic, stormy New York City atmosphere.",
-      "updated_summary": "On a stormy New York City night, a couple stands close under a shared umbrella on glistening, rain-soaked streets. Dressed in warm coats and hoods, the woman lovingly lifts a spoonful of ice cream from their shared cup to feed the man. Soft urban and neon lights reflect off the wet pavement, creating an intimate and tender moment against the backdrop of the city\u2019s glowing storefronts.",
-      "frame_number": 5,
-      "frame_path": "data/frame_005.png"
-    },
-    {
-      "correctness_score": 9,
-      "coherence_score": 9,
-      "faithfulness_score": 9,
-      "frame_description": "The frame shows a man and woman standing close together under a large black umbrella on a wet, rain-soaked city street at night. The man, wearing a tan overcoat layered over a hoodie, leans forward with his eyes half-closed in anticipation. The woman, dressed in a green hooded raincoat, holds a small cup of ice cream in one hand and lifts a spoonful toward the man\u2019s mouth with the other. Reflections of neon and storefront lights shimmer on the pavement behind them, and rain droplets cling to the umbrella\u2019s canopy.",
-      "updated_summary": "On a stormy New York City night, a couple stands close together beneath a shared black umbrella on glistening, rain-soaked streets illuminated by neon and storefront lights. The man, clad in a tan coat over a hoodie, and the woman, wearing a green hooded raincoat, tenderly share a single cup of ice cream\u2014she lifts a spoonful to his lips, creating an intimate moment against the softly lit urban backdrop.",
-      "frame_number": 6,
-      "frame_path": "data/frame_006.png"
     },
     {
       "correctness_score": 10,
       "coherence_score": 10,
       "faithfulness_score": 10,
-      "frame_description": "A close-up shot of a young couple standing under a black umbrella on a rain-soaked street at night. The man, wearing a tan overcoat layered atop a hoodie, leans in with his eyes gently closed while the woman in a green hooded raincoat holds a small wooden spoon and a single cup filled with vanilla ice cream, bringing the spoonful toward his mouth. Reflections of neon and storefront lights glimmer on the wet pavement behind them, emphasizing the soft, intimate mood.",
-      "updated_summary": "On a stormy New York City night, a couple stands close beneath a shared black umbrella on glistening, rain-soaked streets illuminated by neon and storefront lights. The man in a tan coat and hoodie and the woman in a green hooded raincoat tenderly share a single cup of ice cream\u2014she lifts a spoonful to his lips, creating an intimate moment against the softly lit urban backdrop.",
-      "frame_number": 7,
-      "frame_path": "data/frame_007.png"
-    },
-    {
-      "correctness_score": 9,
-      "coherence_score": 9,
-      "faithfulness_score": 9,
-      "frame_description": "A close-up of the couple standing under a large black umbrella on a wet, rain-slicked New York City street at night. The man, wearing a tan overcoat layered over a hoodie, holds a single cup of vanilla ice cream. The woman, clad in a green hooded raincoat with raindrops visible on the fabric, brings a spoonful of ice cream toward the man\u2019s lips. Behind them, blurred neon and storefront lights reflect off the puddled pavement, casting a soft, romantic glow.",
-      "updated_summary": "On a stormy New York City night, a couple huddles beneath a shared black umbrella as rain glistens on their coats and the pavement. The man, dressed in a tan coat and hoodie, and the woman, in a green hooded raincoat, tenderly feed each other from a single cup of vanilla ice cream. Neon shop lights and street reflections provide a softly lit urban backdrop, emphasizing the intimate warmth of their moment.",
-      "frame_number": 8,
-      "frame_path": "data/frame_008.png"
+      "frame_description": "A desk-level, low-angle close-up of a child\u2019s pastel dragon drawing emerging from the paper. The dragon\u2019s right wing stands fully upright in three-dimensional space, edged with colored crayon and faint smoke curling upward from the wax. The dragon\u2019s neck and head have peeled free and are hovering just above the page, its eyes opening in a gentle blink. In the blurred background, a warm lamp glows out of focus, casting soft, warm light across the paper\u2019s texture. To the right, the child\u2019s hand holds a green crayon mid-stroke, and the tilt-shift lens effect produces a shallow depth of field with gentle focus fall-off.",
+      "updated_summary": "The camera continues a slow, desk-level inward push on a child\u2019s pastel dragon drawing under warm lamp light. The dragon\u2019s right wing has fully curved upward into three-dimensional space, and its neck and head have peeled off the paper, blinking awake as wisps of wax smoke rise from its edges. The child\u2019s right hand still holds a green crayon mid-stroke. The soft pastel texture, subsurface scattering of the paper, and warm tone remain consistent, with the 35 mm macro tilt-shift aesthetic preserved through shallow depth of field and gentle focus fall-off.",
+      "frame_number": 4,
+      "frame_path": "data/frame_004.png"
     }
   ]
 }

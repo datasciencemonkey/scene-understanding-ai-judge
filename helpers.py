@@ -11,11 +11,18 @@ from pathlib import Path
 from urllib.parse import urljoin
 
 from dotenv import load_dotenv
+import mlflow
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
 # Load environment variables
 load_dotenv()
+
+# Enable automatic tracing for OpenAI - that's it!
+mlflow.openai.autolog()
+
+mlflow.set_tracking_uri("databricks")
+mlflow.set_experiment(experiment_id=os.getenv("MLFLOW_EXPERIMENT_ID"))
 
 # Get current directory
 current_dir = Path(__file__).parent
@@ -130,7 +137,7 @@ def analyze_frame(
     4. FRAME DESCRIPTION: Detailed description of what you see in this frame
     5. UPDATED SUMMARY: Based on this frame and previous frames, provide an updated summary of the overall video content. That should include new elements *and* what has been observed previously.
     """
-
+    
     try:
         response = client.beta.chat.completions.parse(
             model="o4-mini",
