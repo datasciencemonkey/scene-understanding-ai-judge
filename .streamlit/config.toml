@@ -1,0 +1,16 @@
+[theme]
+# Custom theme for Video Quality Analyzer
+# Inspired by vibrant dashboard design with purple/magenta/teal gradients
+
+primaryColor = "#d946ef"         # Vibrant magenta/fuchsia for primary actions
+backgroundColor = "#1a1831"      # Deep purple background
+secondaryBackgroundColor = "#2a2645"  # Slightly lighter purple for cards/containers
+textColor = "#FAFAFA"            # Crisp white text for readability
+font = "sans serif"              # Clean, modern font
+
+[server]
+headless = true
+port = 8501
+
+[browser]
+gatherUsageStats = false

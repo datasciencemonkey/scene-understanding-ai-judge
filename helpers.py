@@ -18,6 +18,9 @@ from pydantic import BaseModel, Field
 # Load environment variables
 load_dotenv()
 
+if "https" not in os.environ.get("DATABRICKS_HOST", ""):
+    os.environ["DATABRICKS_HOST"] = "https://" + os.environ.get("DATABRICKS_HOST", "")
+
 # Enable automatic tracing for OpenAI - that's it!
 mlflow.openai.autolog()
 

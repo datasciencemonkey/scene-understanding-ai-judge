@@ -97,6 +97,12 @@ def main():
         page_title="Video Quality Analyzer", page_icon="🎬", layout="wide"
     )
 
+    # Load custom CSS
+    css_file = current_dir / ".streamlit" / "custom.css"
+    if css_file.exists():
+        with open(css_file) as f:
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
     st.title("🎬 Video Quality Analyzer")
     st.markdown("---")
 
@@ -226,12 +232,9 @@ def main():
                     )
 
         with col2:
-            st.subheader("🎥 Video Info")
+            st.subheader("🎥 Video")
 
             if os.path.exists(video_path):
-                video_size = os.path.getsize(video_path) / (1024 * 1024)
-                st.success(f"✅ Video file found ({video_size:.1f} MB)")
-
                 # Display video preview
                 with open(video_path, "rb") as video_file:
                     video_bytes = video_file.read()
