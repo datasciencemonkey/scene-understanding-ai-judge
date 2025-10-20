@@ -2,46 +2,46 @@
   "ground_truth": "A direct continuation of the existing shot of a child coloring a dragon on paper. Begin with the crayon already mid-stroke, camera pushing slowly inward at the same steady pace and low desk-level angle. After three seconds, the drawing peels gently from the page and rises into three-dimensional space, wax lines smoking off as the dragon blinks awake. Maintain the 35 mm macro tilt-shift lens with gentle focus fall-off and Pearlescent 1/4 filtration, preserving the soft pastel texture and subsurface scatter of the paper. The child's desk and lighting should remain consistent in color and tone, with the transformation unfolding seamlessly as if no cut occurred.",
   "total_frames": 4,
   "aggregate_scores": {
-    "average_correctness": 9.0,
+    "average_correctness": 8.0,
     "average_coherence": 9.25,
-    "average_faithfulness": 9.0,
-    "overall_score": 9.08
+    "average_faithfulness": 8.25,
+    "overall_score": 8.5
   },
-  "final_summary": "Continuing the uncut sequence, the camera slowly pushes in at a desk-level angle using a 35 mm macro tilt-shift lens with gentle focus fall-off and pearlescent filtration. A child holds a turquoise crayon mid-stroke, coloring the dragon\u2019s tail. The dragon\u2019s right wing has peeled off the paper into 3D form, green with red outlining, and now its head begins to lift, both edged with smoking wax. Warm desk-lamp light bathes the scene, and the background remains softly blurred, seamlessly blending drawing and emerging creature.",
+  "final_summary": "The video maintains a slow, desk-level push-in on a child coloring a whimsical dragon sketch under a warm lamp. Using a turquoise crayon mid-stroke, the dragon\u2019s wing has now peeled away from the sheet in full three-dimensional form, with wax lines smoking off as the dragon blinks awake. The 35 mm macro tilt-shift lens characteristics\u2014gentle focus fall-off, pearlescent filtration, soft pastel textures, and subsurface scatter\u2014remain consistent. Crayons and art supplies lie scattered on the wooden desk, bathed in diffuse golden light, as the transformation unfolds seamlessly as if no cut occurred.",
   "frame_results": [
     {
-      "correctness_score": 9,
+      "correctness_score": 8,
       "coherence_score": 9,
-      "faithfulness_score": 9,
-      "frame_description": "From a low desk-level vantage, a child\u2019s hand grips a turquoise crayon mid-stroke as they color the wing of a whimsical dragon illustration on white paper. The foreground shows a few out-of-focus pastel crayons lying on the wooden desk. In the background, a warm, softly glowing desk lamp and a blurred glass jar contribute to consistent, warm lighting. A shallow depth of field and gentle focus fall-off\u2014characteristic of a 35 mm macro tilt-shift setup\u2014accentuate the waxy crayon texture and the subtle subsurface scatter of the paper.",
-      "updated_summary": "The scene continues with a seamless push-in shot of a child coloring a dragon drawing. The camera remains at a low, desk-level angle with a macro tilt-shift lens, preserving soft pastel textures and consistent warm lighting. In this frame, the child\u2019s hand applies turquoise crayon to the dragon\u2019s wing mid-stroke, setting the stage for the imminent moment when the illustrated dragon will begin to peel off the page.",
+      "faithfulness_score": 8,
+      "frame_description": "The frame shows a low, desk-level close-up of a child\u2019s hand holding a green crayon mid-stroke as it colors a whimsical dragon illustration on a sheet of paper. A warm desk lamp overhead softly illuminates the scene. The background and foreground are gently blurred, suggesting a shallow depth of field with focus fall-off consistent with a 35 mm macro tilt-shift lens. The paper\u2019s pastel texture is visible, and crayons lie scattered on the desk in matching warm tones.",
+      "updated_summary": "The video begins with a steady, low-angle close-up of a child coloring a pastel dragon drawing on paper with a green crayon under a warm desk lamp. The camera employs a slow inward push and a shallow depth of field reminiscent of a 35 mm macro tilt-shift lens. At this point, the dragon artwork remains flat on the page, with no three-dimensional transformation yet.",
       "frame_number": 1,
       "frame_path": "data/frame_001.png"
     },
     {
-      "correctness_score": 9,
+      "correctness_score": 8,
       "coherence_score": 9,
       "faithfulness_score": 9,
-      "frame_description": "The frame shows a close-up at desk level of a child\u2019s right hand holding a turquoise crayon mid-stroke as they color the dragon\u2019s wing. The dragon sketch has a purple outline, pink and yellow body gradients, and partially filled turquoise wings. A warm desk lamp illuminates the paper from above-left, creating soft pastel highlights and a gentle focus fall-off at the top and bottom edges. In the blurred background are a glass jar (possibly for water or brushes), a box of crayons or pastels, and the brass base of the lamp. The shot maintains a shallow depth of field consistent with a 35 mm macro tilt-shift lens and Pearlescent 1/4 filtration, preserving the paper\u2019s subsurface scatter and warm tone.",
-      "updated_summary": "The video continues with a smooth inward camera push at a low, desk-level angle using a macro tilt-shift lens with soft focus fall-off. The child remains coloring a dragon drawing with a turquoise crayon mid-stroke. The soft pastel texture of the paper and consistent warm desk lamp lighting persist. The stage is set for the dragon to soon peel off the page in three-dimensional form.",
+      "frame_description": "A low-angle, close-up shot of a child\u2019s hand holding a turquoise crayon mid-stroke as they color the wing of a drawn dragon on a sheet of paper. The warm desk lamp overhead casts a soft pool of golden light that falls off gently into shadow, and the shallow depth of field (characteristic of a 35 mm macro tilt-shift lens) blurs the background, where other crayons lie scattered. The pastel texture of the paper is visible, and the outlines of the purple-inked dragon remain flat on the page with no three-dimensional elements yet.",
+      "updated_summary": "The video opens on a steady, low desk-level close-up of a child coloring a whimsical dragon sketch under a warm desk lamp. The camera performs a slow inward push using a 35 mm macro tilt-shift lens with soft focus fall-off and Pearlescent filtration, preserving the pastel textures. In this second frame, the child\u2019s hand is shown applying turquoise crayon to the dragon\u2019s wing. The dragon remains flat on the page, the scene consistent in color, tone, and lighting, setting up for the imminent transformation.",
       "frame_number": 2,
       "frame_path": "data/frame_002.png"
     },
     {
-      "correctness_score": 9,
-      "coherence_score": 10,
-      "faithfulness_score": 9,
-      "frame_description": "The frame shows a tight, low-angle close-up of a child\u2019s hand holding a turquoise crayon mid-stroke as it colors a dragon illustration on paper. The dragon\u2019s right wing is visibly curling up off the page into three-dimensional space, its waxy edge lifting and flickering faint wisps of smoke above. The desk surface has a soft pastel texture, and out-of-focus crayons and a warm desk lamp are visible in the blurred background. The shallow depth of field and gentle focus fall-off around the edges indicate the use of a macro tilt-shift lens under warm, consistent desk lighting.",
-      "updated_summary": "Continuing from the previous shot, the camera still pushes inward at a low, desk-level angle using a 35 mm macro tilt-shift lens with soft focus fall-off. A child uses a turquoise crayon mid-stroke to color a whimsical dragon drawing on paper under warm desk-lamp light. In this frame, the dragon\u2019s right wing peels away from the page into three-dimensional form, curling upward with wax lines gently smoking off its edge, seamlessly beginning its transformation into a living creature.",
+      "correctness_score": 7,
+      "coherence_score": 9,
+      "faithfulness_score": 7,
+      "frame_description": "A low-angle, close-up shot of a child\u2019s hand holding a turquoise crayon mid-stroke across the drawn dragon\u2019s wing. The paper remains flat on the desk. Warm lamp light casts a soft halo in the upper left, with other crayons and a jar blurred gently in the background. The 35 mm macro tilt-shift lens creates a shallow depth of field and soft focus fall-off around the edges, preserving the pastel texture of the paper and the subtle subsurface light scatter.",
+      "updated_summary": "We continue the slow, desk-level push-in on a child coloring a whimsical dragon sketch under a warm lamp. In this frame, the child\u2019s hand applies a turquoise crayon mid-stroke to the dragon\u2019s wing. The shot maintains the 35 mm macro tilt-shift lens characteristics\u2014gentle focus fall-off, Pearlescent filtration, and soft pastel textures. Crayons are scattered on the desk. The dragon remains flat for now as the scene holds steady, setting up for the drawing\u2019s imminent three-dimensional emergence.",
       "frame_number": 3,
       "frame_path": "data/frame_003.png"
     },
     {
       "correctness_score": 9,
-      "coherence_score": 9,
+      "coherence_score": 10,
       "faithfulness_score": 9,
-      "frame_description": "A close, low-angle shot of the child\u2019s desk under a warm lamp glow. In the foreground, the paper dragon\u2019s right wing stands fully erect in three-dimensional form, its green and red-outlined membrane catching the soft light. Wisps of smoke drift upward from the wax along the wing\u2019s edge. Behind it, the dragon\u2019s head now arches slightly off the paper, with colored lines and shading matching the rest of the drawing. To the right, the child\u2019s hand grips a turquoise crayon, mid-stroke along the dragon\u2019s tail. The background is softly blurred by the macro tilt-shift lens, preserving a shallow depth of field and the pearlescent, pastel texture of the paper.",
-      "updated_summary": "Continuing the uncut sequence, the camera slowly pushes in at a desk-level angle using a 35 mm macro tilt-shift lens with gentle focus fall-off and pearlescent filtration. A child holds a turquoise crayon mid-stroke, coloring the dragon\u2019s tail. The dragon\u2019s right wing has peeled off the paper into 3D form, green with red outlining, and now its head begins to lift, both edged with smoking wax. Warm desk-lamp light bathes the scene, and the background remains softly blurred, seamlessly blending drawing and emerging creature.",
+      "frame_description": "The camera continues a slow, desk-level push-in on the warm-lit wooden desk. In sharp midground focus, the dragon\u2019s right wing has peeled off the paper into three-dimensional form\u2014its green membrane edged in deep purple\u2014while wisps of smoke drift upward from the waxy crayon lines at the wing\u2019s base. A soft, golden lamp glow occupies the top left corner, casting diffuse illumination over crayons scattered across the desk. The child\u2019s hand hovers just out of focus on the right, still clutching a crayon. The shallow depth of field, pearlescent \u00bc filtration, and pastel paper textures with subtle subsurface scatter are all preserved, with a gentle tilt-shift fall-off that renders the background into creamy bokeh.",
+      "updated_summary": "The video maintains a slow, desk-level push-in on a child coloring a whimsical dragon sketch under a warm lamp. Using a turquoise crayon mid-stroke, the dragon\u2019s wing has now peeled away from the sheet in full three-dimensional form, with wax lines smoking off as the dragon blinks awake. The 35 mm macro tilt-shift lens characteristics\u2014gentle focus fall-off, pearlescent filtration, soft pastel textures, and subsurface scatter\u2014remain consistent. Crayons and art supplies lie scattered on the wooden desk, bathed in diffuse golden light, as the transformation unfolds seamlessly as if no cut occurred.",
       "frame_number": 4,
       "frame_path": "data/frame_004.png"
     }

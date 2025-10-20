@@ -19,7 +19,9 @@ current_dir = Path(__file__).parent
 client = get_openai_client()
 
 
-def analyze_all_frames(ground_truth: str, summary_placeholder=None, image_placeholder=None) -> Dict:
+def analyze_all_frames(
+    ground_truth: str, summary_placeholder=None, image_placeholder=None
+) -> Dict:
     """Analyze all frames in the data directory"""
     frame_files = sorted(glob.glob("data/frame_*.png"))
 
@@ -38,7 +40,11 @@ def analyze_all_frames(ground_truth: str, summary_placeholder=None, image_placeh
 
         # Update image in real-time if placeholder provided
         if image_placeholder:
-            image_placeholder.image(frame_path, caption=f"Analyzing Frame {frame_number}/{len(frame_files)}", width=400)
+            image_placeholder.image(
+                frame_path,
+                caption=f"Analyzing Frame {frame_number}/{len(frame_files)}",
+                width=400,
+            )
 
         frame_result = analyze_frame(
             client,
@@ -190,7 +196,7 @@ def main():
             # Extract button right below prompt
             extract_button = st.button(
                 "🎞️ Extract Frames",
-                width='stretch',
+                width="stretch",
                 type="primary",
                 key="extract_btn",
             )

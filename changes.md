@@ -8,7 +8,7 @@
 ## 🎨 Streamlit App Creation
 Built complete web interface with:
 - 📑 Two-tab layout (Extract Frames / Analyze Frames)
-- 🎞️ Frame extraction with FFmpeg at configurable FPS
+- 🎞️ Frame extraction with MoviePy at configurable FPS
 - 📊 Real-time summary updates during AI analysis
 - 💾 Persistent results with session state
 - ⬇️ JSON download for analysis results
@@ -23,7 +23,7 @@ Extracted shared functionality into reusable module:
 - `load_video_prompts()` - Load video prompts from JSON
 - `encode_image()` / `encode_video()` - Base64 encoding
 - `clear_data_folder()` - Directory management
-- `extract_frames()` - FFmpeg frame extraction
+- `extract_frames()` - MoviePy frame extraction (Python-native, no FFmpeg required)
 - `analyze_frame()` - AI frame analysis with error handling
 
 ### 🔄 Updated All Scripts
@@ -39,6 +39,15 @@ Extracted shared functionality into reusable module:
 ## 🔧 Prompt Enhancement
 Updated analysis prompt to emphasize cumulative summary:
 > "That should include new elements *and* what has been observed previously"
+
+## 🎥 FFmpeg to MoviePy Migration
+Replaced FFmpeg dependency with pure Python MoviePy library:
+- ✅ **Databricks-compatible**: No system dependencies required
+- ✅ **Python-native**: Works in Streamlit apps on Databricks
+- ✅ **Tested**: Successfully extracts frames at configurable FPS
+- 🔄 Updated `extract_frames()` function in `helpers.py`
+- 📝 Updated documentation to remove FFmpeg references
+- 📦 Added `moviepy>=1.0.0,<2.0.0` to requirements.txt
 
 ---
 

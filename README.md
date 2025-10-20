@@ -17,7 +17,6 @@ This tool provides automated quality assessment for AI-generated videos by:
 ## 📋 Prerequisites
 
 - Python 3.12+
-- FFmpeg (for frame extraction)
 - Databricks account with Personal Access Token
 - `uv` package manager
 
@@ -80,8 +79,8 @@ The analysis provides:
 ## 🏗️ Architecture
 
 - **streamlit_app.py**: Interactive web UI with two-tab interface
-- **helpers.py**: Shared utilities for frame extraction and analysis
-- **01-frame-split.py**: CLI tool for video preprocessing using FFmpeg
+- **helpers.py**: Shared utilities for frame extraction and analysis (uses MoviePy)
+- **01-frame-split.py**: CLI tool for video preprocessing using MoviePy
 - **02-app.py**: CLI analysis engine with rich terminal UI
 - Uses base64 encoding for image transmission
 - Pydantic models for structured AI responses

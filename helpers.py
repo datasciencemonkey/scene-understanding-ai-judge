@@ -6,12 +6,13 @@ import base64
 import json
 import os
 import shutil
-import subprocess
 from pathlib import Path
+from typing import Callable, Optional
 from urllib.parse import urljoin
 
-from dotenv import load_dotenv
 import mlflow
+from dotenv import load_dotenv
+from moviepy.editor import VideoFileClip
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
@@ -66,9 +67,9 @@ def get_openai_client() -> OpenAI:
     Returns:
         OpenAI: Configured OpenAI client instance
     """
-    databricks_host = os.getenv("DATABRICKS_HOST")
-    databricks_token = os.environ.get("DATABRICKS_TOKEN")
-    base_url = urljoin(databricks_host, "serving-endpoints")
+    databricks_host: Optional[str] = os.getenv("DATABRICKS_HOST")
+    databricks_token: Optional[str] = os.environ.get("DATABRICKS_TOKEN")
+    base_url: str = urljoin(databricks_host, "serving-endpoints")
 
     return OpenAI(
         api_key=databricks_token,
@@ -76,39 +77,61 @@ def get_openai_client() -> OpenAI:
     )
 
 
-def load_video_prompts():
-    """Load video prompts from JSON file"""
+def load_video_prompts() -> dict:
+    """Load video prompts from JSON file
+
+    Returns:
+        dict: Dictionary containing video prompts and metadata
+    """
     with open(current_dir / "videos/video_prompts.json", "r") as f:
         return json.load(f)
 
 
-def encode_image(image_path):
-    """Encode image file to base64 string"""
+def encode_image(image_path: str) -> str:
+    """Encode image file to base64 string
+
+    Args:
+        image_path: Path to the image file
+
+    Returns:
+        str: Base64 encoded string of the image
+    """
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode("utf-8")
 
 
-def encode_video(video_path):
-    """Encode video file to base64 string"""
+def encode_video(video_path: str) -> str:
+    """Encode video file to base64 string
+
+    Args:
+        video_path: Path to the video file
+
+    Returns:
+        str: Base64 encoded string of the video
+    """
     with open(video_path, "rb") as video_file:
         return base64.b64encode(video_file.read()).decode("utf-8")
 
 
-def clear_data_folder(output_dir):
-    """Clear all contents of the data folder"""
+def clear_data_folder(output_dir: str) -> None:
+    """Clear all contents of the data folder
+
+    Args:
+        output_dir: Path to the output directory to clear
+    """
     if os.path.exists(output_dir):
         shutil.rmtree(output_dir)
     os.makedirs(output_dir, exist_ok=True)
 
 
 def analyze_frame(
-    client,
+    client: OpenAI,
     image_path: str,
     frame_number: int,
     ground_truth: str,
     previous_summary: str = "",
-    error_handler=None,
-):
+    error_handler: Optional[Callable[[str], None]] = None,
+) -> Optional[FrameAnalysis]:
     """
     Analyze a single frame and return scoring and description
 
@@ -140,7 +163,7 @@ def analyze_frame(
     4. FRAME DESCRIPTION: Detailed description of what you see in this frame
     5. UPDATED SUMMARY: Based on this frame and previous frames, provide an updated summary of the overall video content. That should include new elements *and* what has been observed previously.
     """
-    
+
     try:
         response = client.beta.chat.completions.parse(
             model="o4-mini",
@@ -175,9 +198,11 @@ def analyze_frame(
         return None
 
 
-def extract_frames(video_path, output_dir, fps=1):
+def extract_frames(
+    video_path: str, output_dir: str, fps: float = 1
+) -> tuple[bool, int, Optional[str]]:
     """
-    Extract frames from video at specified fps using FFmpeg
+    Extract frames from video at specified fps using MoviePy
 
     Args:
         video_path: Path to input video file
@@ -190,33 +215,34 @@ def extract_frames(video_path, output_dir, fps=1):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir, exist_ok=True)
 
-    cmd = [
-        "ffmpeg",
-        "-i",
-        video_path,
-        "-vf",
-        f"fps={fps}",
-        f"{output_dir}/frame_%03d.png",
-    ]
-
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True)
+        # Load video using MoviePy
+        video = VideoFileClip(video_path)
 
-        if result.returncode == 0:
-            frame_files = [
-                f
-                for f in os.listdir(output_dir)
-                if f.startswith("frame_") and f.endswith(".png")
-            ]
-            return True, len(frame_files), None
-        else:
-            return False, 0, result.stderr
+        # Calculate the interval between frames based on fps
+        interval = 1.0 / fps
+
+        # Extract frames at specified intervals
+        frame_count = 0
+        current_time = 0
+
+        while current_time < video.duration:
+            # Save frame at current time with zero-padded numbering
+            frame_filename = f"{output_dir}/frame_{frame_count + 1:03d}.png"
+            video.save_frame(frame_filename, t=current_time)
+            frame_count += 1
+            current_time += interval
+
+        # Clean up video resource
+        video.close()
+
+        return True, frame_count, None
 
     except FileNotFoundError:
         return (
             False,
             0,
-            "FFmpeg not found. Please install FFmpeg first (brew install ffmpeg)",
+            f"Video file not found: {video_path}",
         )
     except Exception as e:
-        return False, 0, str(e)
+        return False, 0, f"Error extracting frames with MoviePy: {str(e)}"
