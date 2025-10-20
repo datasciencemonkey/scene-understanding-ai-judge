@@ -1,0 +1,18 @@
+{
+    "dragon": {
+        "prompt": "A direct continuation of the existing shot of a child coloring a dragon on paper. Begin with the crayon already mid-stroke, camera pushing slowly inward at the same steady pace and low desk-level angle. After three seconds, the drawing peels gently from the page and rises into three-dimensional space, wax lines smoking off as the dragon blinks awake. Maintain the 35 mm macro tilt-shift lens with gentle focus fall-off and Pearlescent 1/4 filtration, preserving the soft pastel texture and subsurface scatter of the paper. The child's desk and lighting should remain consistent in color and tone, with the transformation unfolding seamlessly as if no cut occurred.",
+        "save_path": "dragon.mp4"
+    },
+    "ice_cream": {
+        "prompt": "A video of a couple sharing a cup of ice cream on a stormy night New York City, soft lighting",
+        "save_path": "ice_cream.mp4"
+    },
+    "gorilla": {
+        "prompt": "a gorilla driving a scooter through a street with people walking on the sidewalk. No rain, buildings on either side",
+        "save_path": "gorilla.mp4"
+    },
+    "hunt": {
+        "prompt": "Cinematic scene of a Zebra and her baby at a watering hole. The scene intensifies as a lion lurks in the tall grass. The mother and her baby make a run for it before the lion pounces.",
+        "save_path": "hunt.mp4"
+    }
+}
