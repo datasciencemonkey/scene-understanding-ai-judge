@@ -1,13 +1,13 @@
 # 🎬 Scene Understanding AI Judge
 
-AI-powered video analysis tool that evaluates generated video frames against ground truth descriptions using Google's Gemini 2.5 Flash model via Databricks.
+AI-powered video analysis tool that evaluates generated video frames against ground truth descriptions using LLMs model on Databricks.
 
 ## 🚀 What It Does
 
 This tool provides automated quality assessment for AI-generated videos by:
 
 1. **Extracting frames** from video files at configurable FPS rates
-2. **Analyzing each frame** using Gemini 2.5 Flash through Databricks endpoints
+2. **Analyzing each frame** using a Multi-Modal LLM (MLLM through Databricks endpoints
 3. **Scoring frames** across three dimensions:
    - **Correctness**: How well the frame matches the ground truth
    - **Coherence**: How well the frame fits the expected sequence
@@ -40,7 +40,6 @@ uv run streamlit run streamlit_app.py
 ```
 
 Launch the interactive Streamlit web interface featuring:
-- **Two-tab layout**: Extract frames and analyze in separate tabs
 - **Video selection**: Choose from multiple test videos
 - **Configurable FPS**: Select extraction rate (0.5-3 fps)
 - **Real-time analysis**: Watch frames being analyzed with live summaries
@@ -54,7 +53,7 @@ Launch the interactive Streamlit web interface featuring:
 uv run 01-frame-split.py
 ```
 
-Extracts frames from `veo3-generations.mp4` at your chosen FPS rate (0.5, 1, 2, or custom).
+Extracts frames from selected video at your chosen FPS rate (0.5, 1, 2, or custom).
 
 #### Step 2: Analyze Frames
 
@@ -87,4 +86,4 @@ The analysis provides:
 
 ## 📝 Notes
 
-Ground truth comparison and scoring criteria are customizable in `02-app.py`.
+Ground truth comparison and scoring criteria are customizable in `helpers.py`. I mean, it's just code. It's all customizable.
